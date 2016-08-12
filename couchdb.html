@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>CouchDB</title>
+  <link rel="stylesheet" type="text/css" href="couchdb.css" />
+
+</head>
+
+<body>
+  <div id="impress">
+    <div id="couchdb" class="step" data-x="0" data-y="0" data-scale="8"> <a href="http://couchdb.apache.org/"><img src="http://couchdb.apache.org/image/couch.png" /></a>
+      <h1>CouchDB</h1></div>
+    <div id="information" class="step" data-x="4500" data-y="1500" data-scale="2" data-rotate-z="">
+      <h2>Project Information</h2>
+      <ul>
+        <li>Apache 2.0 license</li>
+        <li>Implemented in Erlang</li>
+        <li>First released in 2005</li>
+        <li>Available on Windows, Linux and Mac</li>
+      </ul>
+    </div>
+    <div id="nosql" class="step" data-x="-2500" data-y="-500" data-scale="4" data-rotate-z="30">
+      <h2>NoSQL</h2></div>
+    <div id="json" class="step" data-x="0" data-y="0" data-scale="4" data-rotate-z="0">
+      <h2>JSON</h2></div>
+    <div id="javascript" class="step" data-x="2500" data-y="-500" data-scale="4" data-rotate-z="-30">
+      <h2>JavaScript</h2></div>
+    <div id="mapreduce" class="step" data-x="2500" data-y="-2500" data-scale="4" data-rotate-z="30">
+      <h2>MapReduce</h2></div>
+    <div id="rest-http" class="step" data-x="-2500" data-y="-2500" data-scale="4" data-rotate-z="-30">
+      <h2>REST/HTTP</h2></div>
+    <div id="multi-version-concurrency-control" class="step" data-x="4700" data-y="0" data-scale="2" data-rotate-z="25">
+      <h2>Multi-Version Concurrency Control</h2>
+    </div>
+    <div id="eventual-consistency" class="step" data-x="4700" data-y="-2000" data-scale="2" data-rotate-z="-25">
+      <h2>Eventual Consistency</h2>
+    </div>
+    <div id="views" class="step" data-x="6500" data-y="-500" data-scale="4" data-rotate-z="-5">
+      <h2>Views</h2>
+    </div>
+    <div id="views-design" class="step" data-x="6500" data-y="-1500" data-scale="2" data-rotate-z="15">
+      <h2>Design Documents</h2>
+    </div>
+    <div id="views-map" class="step" data-x="7500" data-y="-500" data-scale="2" data-rotate-z="-85">
+      <pre><code>function(doc) {
+      if(doc.date &amp;&amp; doc.title) {
+        emit(doc.date, doc.title);
+      }
+}
+      </code></pre>
+    </div>
+
+    <div id="views-collation" class="step" data-x="6500" data-y="500" data-scale="2" data-rotate-z="175">
+      <h2>Collation</h2>
+    </div>
+    <div id="views-reduce" class="step" data-x="5500" data-y="-1000" data-scale="2" data-rotate-z="-35">
+      <pre><code>function(keys, values, rereduce) {
+    return sum(values);
+}
+</code></pre>
+    </div>
+    <div id="views-joins" class="step" data-x="8000" data-y="-450" data-scale="2" data-rotate-z="95">
+      <h2>Joins</h2>
+    </div>
+    <div id="synchronization" class="step" data-x="-7000" data-y="-450" data-scale="3" data-rotate-z="95">
+      <h2>Synchronization</h2>
+    </div>
+    <div id="show" class="step" data-x="-6000" data-y="1500" data-scale="3" data-rotate-z="-35">
+      <h2>Show Functions</h2>
+    </div>
+    <div id="list" class="step" data-x="-5500" data-y="0" data-scale="3" data-rotate-z="35">
+      <h2>List Functions</h2>
+    </div>
+    <div id="validate" class="step" data-x="-5000" data-y="-2000" data-scale="3" data-rotate-z="-85">
+      <h2>Validate Functions</h2>
+    </div>
+    <div id="update" class="step" data-x="-4000" data-y="2000" data-scale="3" data-rotate-z="85">
+      <h2>Update Functions</h2>
+    </div>
+    <div id="feeds" class="step" data-x="-6250" data-y="-2750" data-scale="3" data-rotate-z="-25">
+      <h2>Change Feeds</h2>
+    </div>
+    <div id="attachments" class="step" data-x="-4000" data-y="-1500" data-scale="3" data-rotate-z="84">
+      <h2>Attchments</h2>
+    </div>
+  </div>
+  <script src="impress.js"></script>
+  <script>
+    impress().init();
+  </script>
+</body>
+
+</html>

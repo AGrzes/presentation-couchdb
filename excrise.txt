@@ -1,0 +1,24 @@
+# Start Couchdb in docker
+docker run --name couchdb -d -p 5984:5984 couchdb
+# Open Futon interface in browser
+xdg-open http://localhost:5984/_utils/
+# Create database testdb
+curl -X PUT http://localhost:5984/testdb
+# Get database testdb
+curl http://localhost:5984/testdb
+# Insert document
+curl -X POST http://localhost:5984/testdb/ -d '{"my":"Firtst","document":["!"]}' -H "Content-Type: application/json"
+# Get all documents
+curl http://localhost:5984/testdb/_all_docs?include_docs=true
+
+
+# Setup CORS
+curl -X PUT http://localhost:5984/_config/httpd/enable_cors -d '"true"'
+curl -X PUT http://localhost:5984/_config/cors/origins -d '"*"'
+curl -X PUT http://localhost:5984/_config/cors/credentials -d '"true"'
+curl -X PUT http://localhost:5984/_config/cors/methods -d '"GET, PUT, POST, HEAD, DELETE"'
+curl -X PUT http://localhost:5984/_config/cors/headers -d '"accept, authorization, content-type, origin, referer, x-csrf-token"'
+#Set up pouchdb serves
+npm install pouchdb-server
+node_modules/.bin/pouchdb-server -p 5985
+xdg-open http://localhost:5985/_utils/

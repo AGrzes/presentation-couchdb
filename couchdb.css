@@ -1,0 +1,42 @@
+body {
+  background-image: url('http://couchdb.apache.org/image/linen.jpg');
+  font-size: 2em;
+  font-family: 'HelveticaNeue-Bold', Helvetica, Arial, sans-serif;
+}
+
+.step {
+  display:flex;
+  align-items:center;
+  flex-direction: column;
+  justify-content: center;
+  width: 1200px;
+}
+
+
+
+h1 {
+  font-size: 4em;
+}
+h2 {
+  font-size: 3em;
+}
+
+h1,  h2, h3, h3  {
+    text-align: center;
+    background-color: #ff0000;
+    color: white;
+    padding: .25em;
+}
+ul, pre {
+  background: white;
+  padding: 1.5em;
+}
+
+.step.active {
+    opacity: 1;
+    transition: opacity 1s ease-in;
+}
+
+.future.step:not(.active) {
+    opacity: 0.05;
+}
