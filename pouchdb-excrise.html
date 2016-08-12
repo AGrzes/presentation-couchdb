@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>PouchDB</title>
+  <link rel="stylesheet" type="text/css" href="main-pouchdb.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pouchdb/5.4.5/pouchdb.min.js" charset="utf-8"></script>
+</head>
+
+<body>
+
+
+
+</body>
+<script>
+  PouchDB.sync('testdb', 'http://localhost:5984/testdb', {
+    live: true,
+    retry: true
+  });
+  var db = new PouchDB('testdb');
+  var list = document.createElement("UL");
+  document.body.appendChild(list);
+  db.allDocs({
+    include_docs: true,
+    attachments: true
+  }).then(function(result) {
+    console.log(result);
+    result.rows.forEach(function(row) {
+      var node = document.createElement("LI");
+      node.setAttribute('id', row.doc._id);
+      var textnode = document.createTextNode(JSON.stringify(row.doc));
+      node.appendChild(textnode);
+      list.appendChild(node);
+    });
+
+  }).catch(function(err) {
+    console.log(err);
+  });
+  db.changes({
+      live: true,
+      since: "now",
+      include_docs: true
+    }).on('change', function(event) {
+        var doc = event.doc;
+        var oldNode = document.getElementById(doc._id);
+        if (oldNode) {
+          oldNode.replaceChild(document.createTextNode(JSON.stringify(doc)), oldNode.childNodes[0]);
+          } else {
+            var node = document.createElement("LI");
+            node.setAttribute('id', row.doc._id);
+            var textnode = document.createTextNode(JSON.stringify(doc));
+            node.appendChild(textnode);
+            list.appendChild(node);
+          }
+        });
+</script>
+
+</html>
